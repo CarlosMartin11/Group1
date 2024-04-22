@@ -1,0 +1,36 @@
+<header>
+<div style="text-align:center">
+  <nav class="navbar">
+    <img src="../../assets/logo.png" alt="Logo" class="logo">
+    <ul class="nav-list">
+      <li><a routerLink="home" routerLinkActive="active">Home</a></li> 
+      <li><a routerLink="about">About </a></li> 
+      <li><a routerLink="list">Todo-List</a></li> 
+    </ul>
+  </nav>
+  <hr class="separator">
+  <router-outlet></router-outlet>
+</div>
+</header>
+
+<body>
+  
+  <h1>TO-DO LIST</h1>
+
+
+<input id="newTodo" placeholder="Task">
+
+
+<input id="newDescription" placeholder="description">
+<input id="newDue" placeholder="due">
+<button (click)="addTodo()">Add Task</button>
+<p>Tasks:</p>
+<h3 *ngFor="let todo of todo">
+  <b> Task{{todo.id }}: {{todo.task}}</b>
+  <b> | Description: {{todo.description}}</b>
+  <b> | Due: {{todo.due}}</b>  
+  <button (click)="deleteTodo(todo.id)">Delete Task</button>
+</h3>
+</body>
+
+
